@@ -28,6 +28,250 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Hello, I am Sohesh',
+      style: optionStyle,
+    ),
+    Container(
+      child: Column(children: [
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Java")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Spring")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Spring Boot")),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Microservices")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Docker")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Web Services")),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("MS SQL")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("HTML")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("JavaScript")),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("JQuery")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Flutter")),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                height: 100,
+                child: Neumorphic(
+                  style: NeumorphicStyle(
+                      shape: NeumorphicShape.flat,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(12)),
+                      depth: 2,
+                      lightSource: LightSource.top,
+                      color: Colors.white),
+                  child: Center(child: Text("Rabbit MQ")),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ]),
+    ),
+    Text(
+      'Projects will come soon!',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -172,16 +416,26 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white),
                   child: Column(
                     children: [
-                      NeumorphicText(
-                        "I love flutter",
-                        style: NeumorphicStyle(
-                          depth: 4, //customize depth here
-                          color: Colors.black, //customize color here
-                        ),
-                        textStyle: NeumorphicTextStyle(
-                          fontSize: 30, //customize size here
-                          // AND others usual text style properties (fontFamily, fontWeight, ...)
-                        ),
+                      BottomNavigationBar(
+                          items: const <BottomNavigationBarItem>[
+                            BottomNavigationBarItem(
+                              icon: Icon(Icons.home),
+                              label: 'Home',
+                            ),
+                            BottomNavigationBarItem(
+                              icon: Icon(Icons.business),
+                              label: 'Skills',
+                            ),
+                            BottomNavigationBarItem(
+                              icon: Icon(Icons.school),
+                              label: 'Projects',
+                            ),
+                          ],
+                          currentIndex: _selectedIndex,
+                          selectedItemColor: Colors.amber[800],
+                          onTap: _onItemTapped),
+                      Center(
+                        child: _widgetOptions.elementAt(_selectedIndex),
                       ),
                     ],
                   ),
