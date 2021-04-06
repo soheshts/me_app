@@ -12,7 +12,7 @@ class MeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Explore',
+      title: 'Sohesh TS',
       theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
           dividerTheme:
@@ -32,9 +32,52 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Hello, I am Sohesh',
-      style: optionStyle,
+    Container(
+      margin: EdgeInsets.all(20),
+      child: Column(children: [
+        Row(
+          children: [
+            NeumorphicText(
+              "Hello there,",
+              style: NeumorphicStyle(
+                depth: 8,
+                color: Colors.black,
+              ),
+              textStyle: NeumorphicTextStyle(
+                fontSize: 40,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            NeumorphicText(
+              "I am Sohesh",
+              style: NeumorphicStyle(
+                depth: 4,
+                color: Colors.black,
+              ),
+              textStyle: NeumorphicTextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            NeumorphicText(
+              "A Java Developer from Kerala in India.",
+              style: NeumorphicStyle(
+                depth: 4,
+                color: Colors.black,
+              ),
+              textStyle: NeumorphicTextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ],
+        )
+      ]),
     ),
     Container(
       child: Column(children: [
@@ -52,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Java")),
                 ),
               ),
@@ -69,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Spring")),
                 ),
               ),
@@ -86,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Spring Boot")),
                 ),
               ),
@@ -107,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Microservices")),
                 ),
               ),
@@ -124,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Docker")),
                 ),
               ),
@@ -141,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Web Services")),
                 ),
               ),
@@ -162,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("MS SQL")),
                 ),
               ),
@@ -179,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("HTML")),
                 ),
               ),
@@ -196,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("JavaScript")),
                 ),
               ),
@@ -217,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("JQuery")),
                 ),
               ),
@@ -234,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Flutter")),
                 ),
               ),
@@ -251,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                           BorderRadius.circular(12)),
                       depth: 2,
                       lightSource: LightSource.top,
-                      color: Colors.white),
+                      color: Colors.grey[100]),
                   child: Center(child: Text("Rabbit MQ")),
                 ),
               ),
