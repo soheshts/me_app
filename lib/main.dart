@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:html' as html;
+import 'package:easy_web_view/easy_web_view.dart';
 
 void main() {
   runApp(MeApp());
@@ -303,10 +304,20 @@ class _HomePageState extends State<HomePage> {
         ),
       ]),
     ),
-    Text(
-      'Projects will come soon!',
-      style: optionStyle,
-    ),
+    Container(
+        child: Expanded(
+      child: EasyWebView(
+        src: 'assets/assets/pages/test.html',
+        isHtml: false, // Use Html syntax
+        isMarkdown: false, // Use markdown syntax
+        convertToWidgets: false, // Try to convert to flutter widgets
+        onLoaded: () {
+          print('Loaded: google');
+        },
+        //width: 500,
+        //height: 500,
+      ),
+    ))
   ];
 
   void _onItemTapped(int index) {
@@ -342,7 +353,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
-                        'images/me.jpg',
+                        'assets/images/me.jpg',
                       ),
                       NeumorphicText(
                         "Sohesh TS",
@@ -471,13 +482,13 @@ class _HomePageState extends State<HomePage> {
                             ),
                             BottomNavigationBarItem(
                               icon: Icon(Icons.school),
-                              label: 'Projects',
+                              label: 'Blog',
                             ),
                           ],
                           currentIndex: _selectedIndex,
                           selectedItemColor: Colors.amber[800],
                           onTap: _onItemTapped),
-                      Center(
+                      Container(
                         child: _widgetOptions.elementAt(_selectedIndex),
                       ),
                     ],
