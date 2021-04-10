@@ -4,6 +4,24 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:html' as html;
 import 'package:easy_web_view/easy_web_view.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
+class Post {
+  final String title;
+  final String date;
+  final String file;
+
+  Post({@required this.title, @required this.date, @required this.file});
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      title: json['title'],
+      date: json['date'],
+      file: json['file'],
+    );
+  }
+}
 
 void main() {
   runApp(MeApp());
@@ -30,6 +48,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  static List<Post> posts = [];
+
+  // Fetch content from the json file
+  static Future<List<Post>> readJson() async {
+    final String response =
+        await rootBundle.loadString('assets/json/blog_pages.json');
+    print("Response: " + response);
+    List jsonResponse = json.decode(response);
+    posts = jsonResponse.map((post) => Post.fromJson(post)).toList();
+    print(posts[0].title);
+    return posts;
+  }
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
@@ -304,20 +335,60 @@ class _HomePageState extends State<HomePage> {
         ),
       ]),
     ),
-    Container(
-        child: Expanded(
-      child: EasyWebView(
-        src: 'assets/assets/pages/test.html',
-        isHtml: false, // Use Html syntax
-        isMarkdown: false, // Use markdown syntax
-        convertToWidgets: false, // Try to convert to flutter widgets
-        onLoaded: () {
-          print('Loaded: google');
-        },
-        //width: 500,
-        //height: 500,
-      ),
-    ))
+    FutureBuilder(
+        future: readJson(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Expanded(
+              child: ListView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (context, index) {
+                  Post post = snapshot.data[index];
+                  print(snapshot.data[index]);
+                  print(post.title);
+                  return InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                                child: Scaffold(
+                              appBar: AppBar(
+                                backgroundColor: Colors.blueGrey,
+                                title: Text(post.title),
+                                centerTitle: true,
+                              ),
+                              body: EasyWebView(
+                                src: 'assets/assets/pages/' + post.file,
+                                isHtml: false, // Use Html syntax
+                                isMarkdown: false, // Use markdown syntax
+                                convertToWidgets:
+                                    false, // Try to convert to flutter widgets
+                                onLoaded: () {
+                                  print('Loaded: google');
+                                },
+                              ),
+                            ));
+                          });
+                    },
+                    child: Card(
+                      child: ListTile(
+                        leading: FaIcon(FontAwesomeIcons.blog),
+                        title: Text(post.title),
+                        subtitle: Text(post.date),
+                        focusColor: Colors.grey,
+                        hoverColor: Colors.grey,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Text("Error occured");
+          }
+          return CircularProgressIndicator();
+        }),
   ];
 
   void _onItemTapped(int index) {

@@ -50,6 +50,7 @@ flutter:
   assets:
     - assets/images/me.jpg
     - assets/pages/
+    - assets/json/blog_pages.json
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
